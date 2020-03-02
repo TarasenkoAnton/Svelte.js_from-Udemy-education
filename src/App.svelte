@@ -3,6 +3,9 @@
 	import ContactCard from "./ContactCard.svelte";
 
 	let name = 'Anton';
+	let title = '';
+	let image ='';
+	let description = '';
 	let age = 33;
 
 	// let uppercaseName; dont required!
@@ -41,5 +44,13 @@
 <!-- <button on:click="{changeName}">Change Name</button> -->
 <!-- <input type="text" value="{name}"on:input={nameInput}> -->
 <input type="text" bind:value="{name}"/>
+<input type="text" bind:value="{title}"/>
+<input type="text" bind:value="{image}"/>
+<textarea rows="3" bind:value="{description}"></textarea>
 
-<ContactCard userName="{name}" />
+<ContactCard 
+	userName="{name}"
+	jobTitle="{title}"
+	description="{description}"
+	userImage="{image}"
+ />
