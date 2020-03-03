@@ -55,7 +55,7 @@ h2 {
 <div class="contact-card">
     <header>
         <!-- <div class="{userImage ? 'thumb' : 'thumb thumb-placeholder' }"> -->
-        <div class="thumb" class:thumb-placeholder="{!userImage}"
+        <div class="thumb" class:thumb-placeholder="{!userImage}">
             <img src="{userImage}" alt="{userName}">
         </div>
        <div class="user-data">
