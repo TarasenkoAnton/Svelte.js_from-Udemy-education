@@ -68,8 +68,8 @@
   </div>
 </div>
 <button on:click="{addContact}">Add Contact Card</button>
-<dutton on:click="{deleteFirst}">Delete First</dutton>
-<dutton on:click="{deleteLast}">Delete Last</dutton>
+<button on:click="{deleteFirst}">Delete First</button>
+<button on:click="{deleteLast}">Delete Last</button>
 
  {#if formState === 'invalid'}
  <p class="danger">Change or choise your add's data</p>
