@@ -1,7 +1,7 @@
 <script>
   import ContactCard from "./ContactCard.svelte";
 
-  let name = "Anton";
+  let name = "Empty";
   let title = "";
   let image = "";
   let description = "";
@@ -23,6 +23,7 @@
     createdContacts = [
       ...createdContacts,
      {
+       id: Math.random(),
       name: name, 
       jobTitle: title, 
       imageUrl: image, 
@@ -30,6 +31,12 @@
       }];
 	  formState = 'done'
   }
+  function deleteFirst (){
+    createdContacts = createdContacts.slice(1);
+  };
+  function deleteLast (){
+    createdContacts = createdContacts.slice(0, -1)
+  };
 </script>
 
 <style>
@@ -61,6 +68,8 @@
   </div>
 </div>
 <button on:click="{addContact}">Add Contact Card</button>
+<dutton on:click="{deleteFirst}">Delete First</dutton>
+<dutton on:click="{deleteLast}">Delete Last</dutton>
 
  {#if formState === 'invalid'}
  <p class="danger">Change or choise your add's data</p>
@@ -68,11 +77,14 @@
  <p>Please entered some date add/or new prof data!</p>
  {/if}
 
-{#each createdContacts as contact}
+{#each createdContacts as contact, i (contact.id)}
+<h2># {i+1}</h2>
 <ContactCard 
 	userName={contact.name}
  	jobTitle={contact.jobTitle}
   description={contact.desc}
   userImage={contact.imageUrl}
  />
+ {:else}
+ <p>Please added one or more contacts</p>
 {/each}
